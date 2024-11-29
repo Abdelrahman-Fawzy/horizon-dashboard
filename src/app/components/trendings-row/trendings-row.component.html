@@ -1,0 +1,145 @@
+<div class="row">
+  <div class="col-lg-4 col-md-12">
+    <div class="box">
+      <div class="header">
+        <span>Your Pie Chart</span>
+        <p-dropdown
+          [options]="periods"
+          [(ngModel)]="selectedPeriod"
+          optionLabel="name"
+          placeholder="Select a Period"
+        >
+        </p-dropdown>
+      </div>
+      <div class="content">
+        <!-- <p-chart type="pie" [data]="data" [options]="options" /> -->
+        <app-pie-chart
+          [series]="data.datasets[0].data"
+          [labels]="data.labels"
+          [colors]="data.datasets[0].backgroundColor"
+        ></app-pie-chart>
+        <div class="info">
+          <ul class="list-unstyled">
+            <li *ngFor="let item of data.datasets[0].data; let i = index">
+              <div class="title">
+                <span
+                  class="circle"
+                  [ngStyle]="{
+                    'background-color': data.datasets[0].backgroundColor[i]
+                  }"
+                ></span>
+                <span>{{ data.labels[i] }}</span>
+              </div>
+              <span>{{ data.datasets[0].data[i] }}%</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-12">
+    <div class="box carousel-box">
+      <div class="header">
+        <span>Trending NFTs</span>
+        <div class="actions">
+          <button (click)="prev()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="iconify iconify--ic MuiBox-root css-1i9wrkf"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M16.62 2.99a1.25 1.25 0 0 0-1.77 0L6.54 11.3a.996.996 0 0 0 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76"
+              ></path>
+            </svg>
+          </button>
+          <button (click)="next()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              aria-hidden="true"
+              role="img"
+              class="iconify iconify--ic MuiBox-root css-1i9wrkf"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31a.996.996 0 0 0 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="carousel">
+        <p-carousel
+          [value]="products"
+          [numVisible]="2"
+          [numScroll]="1"
+          [showIndicators]="false"
+          [showNavigators]="false"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-product pTemplate="item">
+            <div class="trend-item">
+              <div class="img">
+                <img class="img-fluid" [src]="product.img" alt="" />
+              </div>
+              <div class="info">
+                <div class="details">
+                  <span class="title">{{ product.title }}</span>
+                  <span class="user">by {{ product.user }}</span>
+                </div>
+                <div
+                  class="avatars-and-button d-flex align-items-center justify-content-between"
+                >
+                  <div class="avatars">
+                    <p-avatarGroup>
+                      <p-avatar
+                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                        size="normal"
+                        shape="circle"
+                      />
+                      <p-avatar
+                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+                        size="normal"
+                        shape="circle"
+                      />
+                      <p-avatar
+                        image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png"
+                        size="normal"
+                        shape="circle"
+                      />
+                      <p-avatar
+                        label="+2"
+                        shape="circle"
+                        size="normal"
+                        [style]="{
+                          'background-color': '#9c27b0',
+                          color: '#ffffff'
+                        }"
+                      />
+                    </p-avatarGroup>
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <span class="current-bid"
+                  >current bid: {{ product.currentBid }} ETH</span
+                >
+                <button>place bid</button>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.item {
+  background: var(--light-color);
+  padding: 0.7em 1em;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 105px;
+  margin-bottom: 1.3em;
+  .icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    border-radius: 50%;
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    .hint {
+      font-size: 13px;
+      display: flex;
+      gap: 3px;
+      text-transform: capitalize;
+      span.feature {
+        font-weight: 700;
+        color: var(--green-color);
+      }
+      span.normal {
+        color: var(--light-text-color);
+      }
+    }
+    span.title {
+      color: var(--light-text-color);
+      text-transform: capitalize;
+      font-size: 14px;
+    }
+    span.data {
+      color: var(--bold-text-color);
+      font-weight: 700;
+      font-size: 28px;
+    }
+  }
+  &.earnings,
+  &.spent,
+  &.total-projects {
+    .icon { 
+      svg { color: var(--active-color); }
+    }
+  }
+  &.balance {
+    justify-content: space-between;
+    .icon {
+      background-color: transparent;
+      svg {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+  &.new-tasks {
+    .icon {
+      background-image: linear-gradient(90deg, rgb(68, 129, 235) 0%, rgb(4, 190, 254) 100%);
+      svg {
+        color: var(--light-color);
+      }
+    }
+  }
+}

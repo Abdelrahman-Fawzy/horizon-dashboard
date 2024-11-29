@@ -1,0 +1,94 @@
+.box {
+  background: var(--light-color);
+  padding: 1.5em;
+  border-radius: 20px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      font-size: 20px;
+      text-transform: capitalize;
+      font-weight: 700;
+      color: var(--bold-text-color);
+    }
+    button {
+      background: var(--cards-color);
+      color: var(--active-color);
+      border: none;
+      font-size: 24px;
+      text-transform: capitalize;
+      border-radius: 10px;
+      font-weight: bold;
+      width: 36px;
+      height: 36px;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+    }
+  }
+  & > ul {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em;
+      border-radius: 20px;
+      box-shadow: rgba(112, 144, 176, 0.12) 0px 18px 40px 0px;
+      transition: all 0.5s;
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .img {
+          width: 52px;
+          height: 52px;
+          flex-shrink: 0;
+          img {
+            border-radius: 50%;
+            height: 100%;
+          }
+        }
+        .data {
+          display: flex;
+          flex-direction: column;
+          span.name {
+            font-size: 14px;
+            text-transform: capitalize;
+            color: blue;
+            font-weight: 700;
+          }
+          span.position {
+            color: var(--light-text-color);
+            font-size: 12px;
+            text-transform: capitalize;
+            font-weight: 400;
+          }
+        }
+      }
+      button {
+        width: 36px;
+        height: 36px;
+        svg {
+          width: 24px;
+          height: 24px;
+          color: var(--light-text-color);
+        }
+      }
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

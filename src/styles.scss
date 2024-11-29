@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --light-color: rgb(255, 255, 255);
+  --main-color: rgb(244, 247, 254);
+  --dark-main-color: rgb(233, 237, 247);
+  --bold-text-color: rgb(43, 54, 116);
+  --bolder-text-color: rgb(112, 126, 174);
+  --light-text-color: rgb(163, 174, 208);
+  --active-color: rgb(67, 24, 255);
+  --green-color: rgb(5, 205, 153);
+  --cards-color: rgb(239, 244, 251);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul { padding: 0; margin: 0; }
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--main-color);
+  overflow-x: hidden;
+}
+
+body.dark {
+  --light-color: rgb(33, 34, 45);
+  --main-color: rgb(23, 24, 33);
+  --dark-main-color: rgb(233, 237, 247);
+  --bold-text-color: rgb(169, 223, 216);
+  --bolder-text-color: rgb(112, 126, 174);
+  --light-text-color: rgb(163, 174, 208);
+  --active-color: rgb(169, 223, 216);
+  --cards-color: rgb(23, 24, 33);
+
+  .box.business .footer {
+    background-color: rgb(34, 45, 56) !important;
+  }
+}
+
+.wrapper {
+  display: flex;
+}
+
+.calendar {
+  p-calendar {
+    span.p-calendar {
+      width: 100%;
+      .p-datepicker {
+        min-height: 350px !important;
+        border: none;
+        border-radius: 20px;
+        table.p-datepicker-calendar {
+          th {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--bold-text-color);
+            font-weight: 700;
+          }
+          td { 
+            padding: 0; 
+            & > span {
+              font-size: 0.75rem;
+              color: var(--bold-text-color);
+              font-weight: 600;
+              transition: all 0.5s;
+              &:hover {
+                background-color: var(--main-color);
+              }
+              &.p-highlight {
+                background-color: var(--active-color);
+                color: var(--light-color);
+                &:hover {
+                  background-color: var(--bold-text-color);
+                }
+              }
+            }
+            &.p-datepicker-today {
+              & > span {
+                background-color: var(--main-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.apexcharts-xaxis-label {
+  fill: #A9B3D3;
+}
+
+.p-paginator {
+  background-color: var(--light-color);
+}
+
+@media(max-width: 991px) {
+  .box {
+    min-height: 350px !important;
+  }
+}
